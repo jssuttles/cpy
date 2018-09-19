@@ -18,6 +18,10 @@ const preprocessDestPath = (srcPath, dest, options) => {
 		basename = options.rename(basename);
 	}
 
+	if (options.srcCwd) {
+		basename = srcPath.replace(options.srcCwd, '');
+	}
+
 	if (options.cwd) {
 		dest = path.resolve(options.cwd, dest);
 	}
